@@ -39,10 +39,12 @@ ax = fig.gca()
 ax.plot(x, y)
 
 x_0 = 120
+x_0 = np.random.randint(len(x)*0.2, len(x)*0.8)
 x_star = x_0 # Optimal value of parameter
 for iter_index in range(n_iterations):
     x_star = x_star - learning_rate*dy[x_star]
     ax.plot(x[x_star], y[x_star], 'ro', alpha = (iter_index + 1)/n_iterations, color=scalar_map.to_rgba(iter_index))
 color = scalar_map.to_rgba(iter_index)
 plt.show()
+
 print(x_star, x[x_star])  
